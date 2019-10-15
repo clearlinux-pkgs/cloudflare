@@ -6,7 +6,7 @@
 #
 Name     : cloudflare
 Version  : 2.3.0
-Release  : 1
+Release  : 2
 URL      : https://files.pythonhosted.org/packages/57/a8/10eea5162fe2d3e60e439c73da33b18d054a0b2682bfce4d9df6684e8fcc/cloudflare-2.3.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/57/a8/10eea5162fe2d3e60e439c73da33b18d054a0b2682bfce4d9df6684e8fcc/cloudflare-2.3.0.tar.gz
 Source1 : https://files.pythonhosted.org/packages/57/a8/10eea5162fe2d3e60e439c73da33b18d054a0b2682bfce4d9df6684e8fcc/cloudflare-2.3.0.tar.gz.asc
@@ -79,7 +79,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571162313
+export SOURCE_DATE_EPOCH=1571163421
 # -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
@@ -101,6 +101,9 @@ python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
+## Remove excluded files
+rm -f %{buildroot}/usr/lib/python3.7/site-packages/examples/__init__.py
+rm -f %{buildroot}/usr/lib/python3.7/site-packages/examples/__pycache__/__init__.cpython-37.pyc
 
 %files
 %defattr(-,root,root,-)
