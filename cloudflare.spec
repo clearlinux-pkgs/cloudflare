@@ -5,11 +5,11 @@
 # Source0 file verified with key 0x4A34925D05172859 (mahtin@mahtin.com)
 #
 Name     : cloudflare
-Version  : 2.3.0
-Release  : 3
-URL      : https://files.pythonhosted.org/packages/57/a8/10eea5162fe2d3e60e439c73da33b18d054a0b2682bfce4d9df6684e8fcc/cloudflare-2.3.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/57/a8/10eea5162fe2d3e60e439c73da33b18d054a0b2682bfce4d9df6684e8fcc/cloudflare-2.3.0.tar.gz
-Source1 : https://files.pythonhosted.org/packages/57/a8/10eea5162fe2d3e60e439c73da33b18d054a0b2682bfce4d9df6684e8fcc/cloudflare-2.3.0.tar.gz.asc
+Version  : 2.3.1
+Release  : 4
+URL      : https://files.pythonhosted.org/packages/9b/8c/973e3726c2aa73821bb4272717c6f9f6fc74e69d41ba871bdf97fc671782/cloudflare-2.3.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/9b/8c/973e3726c2aa73821bb4272717c6f9f6fc74e69d41ba871bdf97fc671782/cloudflare-2.3.1.tar.gz
+Source1  : https://files.pythonhosted.org/packages/9b/8c/973e3726c2aa73821bb4272717c6f9f6fc74e69d41ba871bdf97fc671782/cloudflare-2.3.1.tar.gz.asc
 Summary  : Python wrapper for the Cloudflare v4 API
 Group    : Development/Tools
 License  : MIT
@@ -27,14 +27,12 @@ BuildRequires : python-future
 BuildRequires : requests
 
 %description
-cloudflare-python
 =================
-Installation
-------------
-Two methods are provided to install this software. Use PyPi (see
-`package <https://pypi.python.org/pypi/cloudflare>`__ details) or GitHub
-(see `package <https://github.com/cloudflare/python-cloudflare>`__
-details).
+        
+        Installation
+        ------------
+        
+        Two methods are provided to install this software. Use PyPi (see
 
 %package bin
 Summary: bin components for the cloudflare package.
@@ -72,15 +70,15 @@ python3 components for the cloudflare package.
 
 
 %prep
-%setup -q -n cloudflare-2.3.0
+%setup -q -n cloudflare-2.3.1
+cd %{_builddir}/cloudflare-2.3.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571163421
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1576086554
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -96,7 +94,7 @@ python3 setup.py build
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/cloudflare
-cp %{_builddir}/cloudflare-2.3.0/LICENSE %{buildroot}/usr/share/package-licenses/cloudflare/1857fba4ea5c0240235ad8374c2a15727733798e
+cp %{_builddir}/cloudflare-2.3.1/LICENSE %{buildroot}/usr/share/package-licenses/cloudflare/1857fba4ea5c0240235ad8374c2a15727733798e
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
