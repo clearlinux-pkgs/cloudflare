@@ -6,7 +6,7 @@
 #
 Name     : cloudflare
 Version  : 2.3.1
-Release  : 4
+Release  : 5
 URL      : https://files.pythonhosted.org/packages/9b/8c/973e3726c2aa73821bb4272717c6f9f6fc74e69d41ba871bdf97fc671782/cloudflare-2.3.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/9b/8c/973e3726c2aa73821bb4272717c6f9f6fc74e69d41ba871bdf97fc671782/cloudflare-2.3.1.tar.gz
 Source1  : https://files.pythonhosted.org/packages/9b/8c/973e3726c2aa73821bb4272717c6f9f6fc74e69d41ba871bdf97fc671782/cloudflare-2.3.1.tar.gz.asc
@@ -78,7 +78,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1576086554
+export SOURCE_DATE_EPOCH=1576088833
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
@@ -99,9 +99,10 @@ python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
-## Remove excluded files
-rm -f %{buildroot}/usr/lib/python3.7/site-packages/examples/__init__.py
-rm -f %{buildroot}/usr/lib/python3.7/site-packages/examples/__pycache__/__init__.cpython-37.pyc
+## install_append content
+sitedir=$(python -c "import sys; print(sys.path[-1])")
+rm -rf %{buildroot}/${sitedir}/examples
+## install_append end
 
 %files
 %defattr(-,root,root,-)
