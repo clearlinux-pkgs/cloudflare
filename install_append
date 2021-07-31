@@ -1,2 +1,5 @@
 sitedir=$(python -c "import sys; print(sys.path[-1])")
 rm -rf %{buildroot}/${sitedir}/examples
+man1dir=%{buildroot}/usr/share/man/man1
+mkdir -pv $man1dir
+mv -v %{buildroot}/usr/man/man1/cli4.man $man1dir/cli4.1

@@ -1,5 +1,5 @@
 PKG_NAME := cloudflare
-URL = https://files.pythonhosted.org/packages/9b/8c/973e3726c2aa73821bb4272717c6f9f6fc74e69d41ba871bdf97fc671782/cloudflare-2.3.1.tar.gz
+URL = https://files.pythonhosted.org/packages/f9/b1/42b74b3f19609a63c42fb0c8a5474a98aa72f1d122cf3eea57ff27e8ac01/cloudflare-2.8.15.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
