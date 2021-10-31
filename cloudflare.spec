@@ -6,7 +6,7 @@
 #
 Name     : cloudflare
 Version  : 2.8.15
-Release  : 24
+Release  : 25
 URL      : https://files.pythonhosted.org/packages/f9/b1/42b74b3f19609a63c42fb0c8a5474a98aa72f1d122cf3eea57ff27e8ac01/cloudflare-2.8.15.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f9/b1/42b74b3f19609a63c42fb0c8a5474a98aa72f1d122cf3eea57ff27e8ac01/cloudflare-2.8.15.tar.gz
 Source1  : https://files.pythonhosted.org/packages/f9/b1/42b74b3f19609a63c42fb0c8a5474a98aa72f1d122cf3eea57ff27e8ac01/cloudflare-2.8.15.tar.gz.asc
@@ -94,7 +94,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1627689828
+export SOURCE_DATE_EPOCH=1635711581
 export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
